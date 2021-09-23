@@ -5,13 +5,9 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BiLinkAlt } from "react-icons/bi";
 import { BiBuildings } from "react-icons/bi";
 
-import { colors } from "../theme/dark-theme";
-
-import { light } from "../theme/light-theme";
-
 const Card = styled.div`
   grid-column: 1 / -1;
-  background-color: ${colors.blueNight};
+  background-color: ${(props) => props.theme.card};
   width: 100%;
   border-radius: 8px;
   padding: 2rem;
@@ -37,21 +33,28 @@ const Name = styled.p`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   & .name {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-weight: 600;
   }
 
   & .login {
     margin-top: 0;
-    background-color: ${colors.blueSky};
+    background-color: ${(props) => props.theme.icon};
   }
 `;
 
-const Username = styled.p``;
+const Username = styled.p`
+  padding: 0.1rem 0;
+  font-size: 0.7rem;
+`;
 
-const Date = styled.span``;
+const Date = styled.span`
+  font-size: 0.7rem;
+`;
 
 const Bio = styled.p`
   grid-area: bio;
@@ -59,13 +62,13 @@ const Bio = styled.p`
 `;
 const Numbers = styled.p`
   grid-area: numbers;
-  background-color: ${colors.blueDark};
+  background-color: ${(props) => props.theme.bg};
   border-radius: 8px;
   display: flex;
   align-items: center;
   & .numbers {
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   & ul {
@@ -93,7 +96,7 @@ const Info = styled.p`
   }
 `;
 
-export function CardUser({ user, theme }) {
+export function CardUser({ user }) {
   return (
     <Card>
       <ProfilePic src={`${user.avatar_url}`} alt="" />
@@ -127,7 +130,7 @@ export function CardUser({ user, theme }) {
           </span>
           <span>
             <FiTwitter />
-            {user.twitter_username ? user.twitter_username : "twitter"}
+            {user.twitter_username ? user.twitter_username : " twitter"}
           </span>
         </p>
         <p>

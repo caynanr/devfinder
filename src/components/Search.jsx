@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { colors } from "../theme/dark-theme";
-
 import SearchSvgfrom from "../assets/search-solid.svg";
 
 const SearchInput = styled.div`
   width: 100%;
   grid-column: 1 / -1;
-  background-color: ${colors.blueNight};
+  background-color: ${(props) => props.theme.card};
   border-radius: 8px;
   display: flex;
   justify-content: space-around;
@@ -27,11 +25,11 @@ const SearchInput = styled.div`
     background-color: transparent;
     border: none;
     font-size: 1rem;
-    color: ${colors.heading};
+    color: ${(props) => props.theme.heading};
     padding: 0.4rem;
   }
   & input::placeholder {
-    color: ${colors.heading};
+    color: ${(props) => props.theme.heading};
   }
 
   & input:focus {
@@ -39,12 +37,12 @@ const SearchInput = styled.div`
   }
 
   & .searchBtn {
-    background-color: ${colors.blueSky};
+    background-color: ${(props) => props.theme.button};
     border: none;
     padding: 0.8rem;
     letter-spacing: 1px;
     border-radius: 8px;
-    color: ${colors.heading};
+    color: ${(props) => props.theme.heading};
     cursor: pointer;
   }
 `;
